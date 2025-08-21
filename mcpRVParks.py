@@ -76,7 +76,7 @@ def lat_lon_range(latitude, longitude, distance_miles):
     return (min_lat, max_lat, min_lon, max_lon)
 
 def get_db_connection():
-    conn = sqlite3.connect("RVParks.db")
+    conn = sqlite3.connect("rvParks.db")
     conn.row_factory = sqlite3.Row  # Enables dict-like access to rows
     return conn
 
