@@ -1,4 +1,4 @@
-name: Playwright mcpServer
+name: Linux MCP Servers
 version: 0.0.1
 schema: v1
 mcpServers:
