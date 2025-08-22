@@ -1,14 +1,8 @@
 import time
-import logging
 import sqlite3
 import math
 import json
 from mcp.server.fastmcp import FastMCP
-
-# Initialize class instances
-logger = logging.getLogger(__name__)
-logging.basicConfig(filename='RVParks.log', level=logging.INFO)
-
 
 mcp = FastMCP("RVParks")
 
@@ -79,25 +73,6 @@ def get_db_connection():
     conn = sqlite3.connect("rvParks.db")
     conn.row_factory = sqlite3.Row  # Enables dict-like access to rows
     return conn
-
-@mcp.tool()
-def get_parks() -> str :
-    """
-    Gets a list of all the RV parks in Pennsylvania,New York, Delaware and Ohio
-    Args:
-    """
-    conn = get_db_connection()
-    cursor = conn.cursor()
-    
-    cursor.execute("SELECT * FROM park")
-    rows = cursor.fetchall()
-    conn.close()
-
-    parks = [dict(row) for row in rows]  # Convert to list of dictionaries
-    return json.dumps(parks)
-
-
-
 
 @mcp.tool()
 def get_parks_by_distance(latitude: float,longitude:float,miles: int ) -> str:

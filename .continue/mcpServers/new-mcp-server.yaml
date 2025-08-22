@@ -1,4 +1,4 @@
-name: Linux MCP Servers
+name: MCP Servers
 version: 0.0.1
 schema: v1
 mcpServers:
@@ -6,6 +6,6 @@ mcpServers:
     command: uv
     args:
       - "--directory"
-      - "/home/david/projects/mcpRVParks"
+      - "c:/projects/mcpRVParks"
       - "run"
       - "mcpRVParks.py"
