@@ -4,7 +4,7 @@ import math
 import json
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("RVParks")
+mcp = FastMCP("RVParks",port=8104,host="0.0.0.0")
 
 
 def distance_between_points(lat1, lon1, lat2, lon2):
@@ -104,4 +104,4 @@ def get_parks_by_distance(latitude: float,longitude:float,miles: int ) -> str:
     return json.dumps(parkAndDistance)
 
 if __name__ == '__main__':
-    mcp.run()
+    mcp.run(transport="streamable-http")

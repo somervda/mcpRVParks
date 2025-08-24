@@ -1,0 +1,17 @@
+[Unit]
+Description=MCP RV Park Service
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/mcpRVParks
+# Path to the python interpreter in your virtual environment
+ExecStart=/home/pi/mcpRVParks/.venv/bin/python mcpRVParks.py 
+Restart=always
+RestartSec=30
+
+
+[Install]
+WantedBy=multi-user.target
